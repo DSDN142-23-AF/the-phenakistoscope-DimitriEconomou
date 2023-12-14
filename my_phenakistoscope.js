@@ -1,7 +1,7 @@
 const SLICE_COUNT = 10;
 
 function setup_pScope(pScope){
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(STATIC_FRAME);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -47,3 +47,7 @@ function squares(x, y, animation, pScope){
   rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
 
 }
+
+
+
+
