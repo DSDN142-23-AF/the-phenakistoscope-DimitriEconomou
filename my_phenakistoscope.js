@@ -1,7 +1,7 @@
 const SLICE_COUNT = 10;
 
 function setup_pScope(pScope){
-  pScope.output_mode(STATIC_FRAME);
+  pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -13,12 +13,16 @@ function setup_layers(pScope){
   new PLayer(null, 220);  //lets us draw the whole circle background, ignoring the boundaries
 
   var layer1 = new PLayer(faces);
-  layer1.mode( SWIRL(5) );
+  layer1.mode( SWIRL(6) );
   layer1.set_boundary( 200, 1000 );
 
   var layer2 = new PLayer(squares);
   layer2.mode( RING );
   layer2.set_boundary( 0, 400 );
+  
+  var layer3 =new PLayer(catface)
+  layer3.mode(RING)
+ 
 }
 
 function faces(x, y, animation, pScope){
@@ -48,6 +52,12 @@ function squares(x, y, animation, pScope){
 
 }
 
+function catface(x, y, animation, pScope){
+  scale(animation.frame);
+  fill(20,20,20)
+  rect(800,50,50,50)
 
 
 
+}
+ 
