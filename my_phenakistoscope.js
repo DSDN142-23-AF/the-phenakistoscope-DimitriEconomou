@@ -22,6 +22,7 @@ function setup_layers(pScope){
   
   var layer3 =new PLayer(catface)
   layer3.mode(RING)
+  layer3.set_boundary(800,1000)
  
 }
 
@@ -53,11 +54,8 @@ function squares(x, y, animation, pScope){
 }
 
 function catface(x, y, animation, pScope){
-  scale(animation.frame);
+  scale(animation.frame*1);
   fill(20,20,20)
-  rect(800,50,50,50)
-
-
-
+  rect(800,50-animation.wave(),50,50)
 }
  
