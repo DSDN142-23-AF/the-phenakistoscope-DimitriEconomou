@@ -9,6 +9,7 @@ function setup_pScope(pScope){
   pScope.set_slice_count(SLICE_COUNT);
   pScope.load_image("paw test","png")
   pScope.load_image_sequence("cat_test","png",11)
+  pScope.load_image("fishring","png")
   pScope.load_image("yarntest","png")
 }
 
@@ -19,6 +20,10 @@ function setup_layers(pScope){
   var ringouter =new PLayer(outerring)
   ringouter.mode( RING )
   ringouter.set_boundary(0,1000)
+
+  var fishringback =new PLayer(fishringbackground)
+  fishringback.mode( RING )
+  fishringback.set_boundary(0,1000)
 
   var middlebackground =new PLayer(secondmiddlebackground)
   middlebackground.mode(RING)
@@ -46,11 +51,15 @@ function setup_layers(pScope){
 
 }
 
+function fishringbackground(x,y,animation,pScope){
+scale(0.50)
+pScope.draw_image("fishring",x,y-1850-animation.wave()*-100)
+}
 
 function wool(x, y, animation, pScope){
   fill(255)
   scale(0.9)
-  pScope.draw_image("yarntest",x-10,y+465-animation.wave()*-360)
+  pScope.draw_image("yarntest",x-10,y+463-animation.wave()*-350)
 }
 
 function paw(x, y, animation, pScope){
@@ -86,28 +95,28 @@ function rat(x, y, animation, pScope){
   translate(x,y-20)
   strokeWeight(4)
   fill(255)
-  ellipse(-14,-231-animation.wave()*50,80,57) 
+  ellipse(-14,-229-animation.wave()*50,80,57) 
   fill(0)
-  ellipse(-35,-240-animation.wave()*50,5,5)
+  ellipse(-35,-238-animation.wave()*50,5,5)
   
   fill(255)
   beginShape(vertex)
-  vertex(-32,-258-animation.wave()*50)
-  vertex(-32,-270-animation.wave()*50)
-  vertex(-18,-265-animation.wave()*50)
-  vertex(-18,-245-animation.wave()*50)
+  vertex(-32,-256-animation.wave()*50)
+  vertex(-32,-268-animation.wave()*50)
+  vertex(-18,-263-animation.wave()*50)
+  vertex(-18,-243-animation.wave()*50)
   endShape()
 
   fill(0)
   stroke(150,1,20)
-  line(25,-220-animation.wave()*50,60,-220-animation.wave()*50)
+  line(25,-218-animation.wave()*50,60,-218-animation.wave()*50)
   stroke(0)
   fill(150,1,20)
-  ellipse(-50,-229-animation.wave()*50, 10,10)
+  ellipse(-50,-227-animation.wave()*50, 10,10)
   strokeWeight(3)
-  line(-38,-227-animation.wave()*50,-15,-235-animation.wave()*50)
-  line(-30,-224-animation.wave()*50, -5,-224-animation.wave()*50 )
-  line(-38,-221-animation.wave()*50,-15,-215-animation.wave()*50)
+  line(-38,-225-animation.wave()*50,-15,-233-animation.wave()*50)
+  line(-30,-222-animation.wave()*50, -5,-222-animation.wave()*50 )
+  line(-38,-219-animation.wave()*50,-15,-213-animation.wave()*50)
 }
 
 function catface(x, y, animation, pScope){
