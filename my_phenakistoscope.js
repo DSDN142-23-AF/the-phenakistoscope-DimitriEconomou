@@ -24,47 +24,36 @@ function setup_layers(pScope){
   middlebackground.mode(RING)
   middlebackground.set_boundary(0,1000)
 
+  var ringinner =new PLayer(innerring)
+  ringinner.mode(RING)
+  ringinner.set_boundary(0,1000)
+ 
   var cat =new PLayer(catface)
   cat.mode(RING)
-  cat.set_boundary(0,300)
+  cat.set_boundary(0,100)
 
   var yarn = new PLayer(wool);
   yarn.mode(RING);
   yarn.set_boundary( 0, 1000 );
 
-  var layer4 = new PLayer(rat);
-  layer4.mode( SWIRL(2) );
-  layer4.set_boundary(0,1);
+  var ratring = new PLayer(rat);
+  ratring.mode( SWIRL(1) );
+  ratring.set_boundary(0,1);
 
   var Centrepaw =new PLayer(paw)
   Centrepaw.mode( RING )
-  Centrepaw.set_boundary(0, 30)
+  Centrepaw.set_boundary(0,1000)
 
 }
 
 
 function wool(x, y, animation, pScope){
-
-  // this is how you set up a background for a specific layer
-  let angleOffset = (360 / SLICE_COUNT)/2 
-  let backgroundArcStart = 270 - angleOffset;
-  let backgroundArcEnd = 270 + angleOffset;
-  scale(1)
-  fill(200, 200, 10)
- // arc(x,y,900,900,backgroundArcStart,backgroundArcEnd); // draws "pizza slice" in the background
-
   fill(255)
-  //rect(-10,-300-animation.wave()*50,20,20) // .wave is a cosine wave btw
-  pScope.draw_image("yarntest",x-10,y+450-animation.wave()*-260)
+  scale(0.9)
+  pScope.draw_image("yarntest",x-10,y+465-animation.wave()*-360)
 }
 
 function paw(x, y, animation, pScope){
-  let angleOffsetpaw = (360 / SLICE_COUNT) /2
-  let backgroundArcStartpaw = 270 - angleOffsetpaw;
-  let backgroundArcEndpaw = 270 + angleOffsetpaw;
-  fill(120,140,170)
-  //arc(x,y,250,250,backgroundArcStartpaw,backgroundArcEndpaw)
-
   scale(animation.frame);
   pScope.draw_image("paw test",x,y);
 }
@@ -78,24 +67,22 @@ function secondmiddlebackground(x, y, animation, pScope){
 }
 
 function outerring(x,y,animation,pScope){
-
   let angleOffsetouterring = (360 / SLICE_COUNT)/2
   let backgroundArcStartouterring = 270 - angleOffsetouterring;
   let backgroundArcEndouterring = 270 + angleOffsetouterring;
   fill(214,214,13)
   arc(x,y,2000,2000,backgroundArcStartouterring,backgroundArcEndouterring)
-
 }
 
+function innerring(x, y,animation,pScope){ 
+let angleOffsetinnerring = (360 / SLICE_COUNT)/2 
+let ArcStartinnerring = 270 - angleOffsetinnerring;
+let ArcEndinnerring = 270 + angleOffsetinnerring;
+fill(214, 214, 13)
+arc(x,y,770,770,ArcStartinnerring,ArcEndinnerring);
+}
 
 function rat(x, y, animation, pScope){
-  let angleOffset = (360 / SLICE_COUNT)/2 
-  let backgroundArcStart = 270 - angleOffset;
-  let backgroundArcEnd = 270 + angleOffset;
-  
-  fill(214, 214, 13)
-  arc(x,y,750,750,backgroundArcStart,backgroundArcEnd); 
-
   translate(x,y-20)
   strokeWeight(4)
   fill(255)
@@ -126,8 +113,7 @@ function rat(x, y, animation, pScope){
 function catface(x, y, animation, pScope){
   translate(x,y-500);
   scale(1.5);
-  pScope.draw_image_from_sequence("cat_test", x+5,y, animation.frame);
-    
+  pScope.draw_image_from_sequence("cat_test", x+5,y-5, animation.frame);    
 }
 
  
