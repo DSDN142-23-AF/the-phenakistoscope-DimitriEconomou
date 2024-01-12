@@ -100,7 +100,7 @@ function secondmiddlebackground(x, y, animation, pScope){
   let angleOffsetsecondbackground = (360 / SLICE_COUNT)/2
   let backgroundArcStartsecondbackground = 270 - angleOffsetsecondbackground
   let backgroundArcEndsecondbackground = 270 + angleOffsetsecondbackground
-  fill(160,140,190) //160,140,190, 199,14,17
+  fill(160,140,190) 
   arc(x,y,1500,1500,backgroundArcStartsecondbackground,backgroundArcEndsecondbackground)  
 }
 
