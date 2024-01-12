@@ -21,9 +21,9 @@ function setup_layers(pScope){
   ringouter.mode( RING )
   ringouter.set_boundary(0,1000)
 
-  var outerringredwhite =new PLayer(redwhiteouterring)
-  outerringredwhite.mode(RING)
-  outerringredwhite.set_boundary(0,100)
+  var outerringpurplewhite =new PLayer(purplewhiteouterring)
+  outerringpurplewhite.mode(RING)
+  outerringpurplewhite.set_boundary(0,100)
 
   var ringpaw =new PLayer(pawring)
   ringpaw.mode (RING)
@@ -66,7 +66,7 @@ function outerring(x,y,animation,pScope){
   arc(x,y,2000,2000,backgroundArcStartouterring,backgroundArcEndouterring)
 }
 
-function redwhiteouterring(x, y, animation, pScope){
+function purplewhiteouterring(x, y, animation, pScope){
   let angleOffsetsecondbackground = (360 / SLICE_COUNT)/2
   let backgroundArcStartsecondbackground = 270 - angleOffsetsecondbackground
   let backgroundArcEndsecondbackground = 270 + angleOffsetsecondbackground
